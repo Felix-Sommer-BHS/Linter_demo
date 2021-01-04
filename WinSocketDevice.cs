@@ -1,49 +1,42 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
 using System.Net.Sockets;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
-using System.Windows;
-using testMfile_move;
 
-namespace testing
+namespace Testing
 {
-    partial class WinSocketDevice : IDevice
+    internal partial class WinSocketDevice : IDevice
     {
-        private readonly Thread _thread;
-
         /// <summary>
         /// ndclnsdlcnl.
         /// </summary>
         protected Socket _workSocket;
+
+        private readonly Thread _thread;
+        private IWinSocketState _closeState;
         private Config _config;
+        private IWinSocketState _connectState;
+        private IWinSocketState _currentState;
+        private IWinSocketState _initState;
+        private IWinSocketState _readState;
         private bool _threadWork;
 
-        IWinSocketState _initState;
-        IWinSocketState _connectState;
-        IWinSocketState _readState;
-        IWinSocketState _closeState;
-        IWinSocketState _currentState;
-
-        public WinSocketDevice(Config Config)
+        public WinSocketDevice(Config config)
         {
-            this._config = Config;
+            this._config = config;
             this._thread = new Thread(new ThreadStart(this.DoWork));
             this._thread.Priority = ThreadPriority.Lowest;
         }
 
         public event EventHandler<string> ProcessCompleted;
 
-
-        public void Stop()
+        public void DoWork()
         {
-            this._threadWork = false;
+            do
+            {
+                this._currentState.Action();
+            }
+            while (this._threadWork);
         }
-
-
 
         public void Init()
         {
@@ -56,13 +49,9 @@ namespace testing
             Start();
         }
 
-        public void DoWork()
+        public void Stop()
         {
-            do
-            {
-                this._currentState.Action();
-            }
-            while (this._threadWork);
+            this._threadWork = false;
         }
 
         internal void SetState(IWinSocketState state)

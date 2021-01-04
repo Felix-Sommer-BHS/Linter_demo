@@ -1,58 +1,52 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace testing
+﻿namespace Testing
 {
     public class ConveyData
     {
         public int DataSetCounter;
-        public string costumerID;
-        public int stackerNr;
-        public int dataSetID;
-        public int multiStacking;
-        public int multiStackPartial;
-        public int multiStackNrPartial;
-        public string orderNumber;
+        public string CostumerID;
+        public int StackerNr;
+        public int DataSetID;
+        public int MultiStacking;
+        public int MultiStackPartial;
+        public int MultiStackNrPartial;
+        public string OrderNumber;
         public int PartNr;
-        public string costumerName;
-        public string processingMachine;
-        public int destLine;
-        public int lengthIndPartStack;
-        public int outWidthIndPartStack;
-        public int nrSheetsPartStack;
-        public int overallNrStacks;
-        public int overallWidthStackPackage;
-        public int overalllengthStackPackage;
-        public int overallheightStackPackage;
-        public int nrStackswidthwise;
-        public int nrStackslengthwise;
-        public int nrStacksabove;
-        public int stackConfNominal;
-        public int intermLayerForPackages;
-        public int lastStack;
-        public int lastRunCostumer;
-        public int dischargeDirection;
-        public int expNrStackPackPartialOrder;
-        public int expNrStackPackOverallOrder;
-        public string setupIdentification;
-        public int nrOuts;
-        public int[] scoringKnifePos = new int[24];
-        public int totalCutsActualOrder;
-        public int lastStackModified;
-        public int widthStackGroup;
-        public int nrOutsForStackGroup;
-        public int lastStackStore;
-        public string reserved;
+        public string CostumerName;
+        public string ProcessingMachine;
+        public int DestLine;
+        public int LengthIndPartStack;
+        public int OutWidthIndPartStack;
+        public int NrSheetsPartStack;
+        public int OverallNrStacks;
+        public int OverallWidthStackPackage;
+        public int OveralllengthStackPackage;
+        public int OverallheightStackPackage;
+        public int NrStackswidthwise;
+        public int NrStackslengthwise;
+        public int NrStacksabove;
+        public int StackConfNominal;
+        public int IntermLayerForPackages;
+        public int LastStack;
+        public int LastRunCostumer;
+        public int DischargeDirection;
+        public int ExpNrStackPackPartialOrder;
+        public int ExpNrStackPackOverallOrder;
+        public string SetupIdentification;
+        public int NrOuts;
+        public int[] ScoringKnifePos = new int[24];
+        public int TotalCutsActualOrder;
+        public int LastStackModified;
+        public int WidthStackGroup;
+        public int NrOutsForStackGroup;
+        public int LastStackStore;
+        public string Reserved;
 
-        public string filePath;
+        public string FilePath;
 
-        public int port;
-        public string ip;
-        public ConnectionKind connectionTyp;
-        public TranslatorKind translatorTyp;
-        public DeviceKind deviceKind;
+        public int Port;
+        public string Ip;
+        public ConnectionKind ConnectionTyp;
+        public TranslatorKind TranslatorTyp;
+        public DeviceKind DeviceKind;
     }
 }

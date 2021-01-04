@@ -1,43 +1,37 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Sockets;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 
-namespace testing
+namespace Testing
 {
-    partial class WinSocketDevice
+    internal partial class WinSocketDevice
     {
-        class WinSocketConnectState : IWinSocketState
+        private class WinSocketConnectState : IWinSocketState
         {
             protected WinSocketDevice _parent;
 
-            internal WinSocketConnectState(WinSocketDevice Parent)
+            internal WinSocketConnectState(WinSocketDevice parent)
             {
-                this._parent = Parent;
+                this._parent = parent;
             }
-
 
             public void Action()
             {
-                switch (_parent._config.connectionTyp)
+                switch (_parent._config.ConnectionTyp)
                 {
                     case ConnectionKind.Client:
 
-                        string ipAddress = _parent._config.ipServer;
+                        string ipAddress = _parent._config.IpServer;
                         IPAddress address = IPAddress.Parse(ipAddress);
-                        IPEndPoint remoteEP = new IPEndPoint(address, _parent._config.portClient);
+                        IPEndPoint remoteEP = new IPEndPoint(address, _parent._config.PortClient);
                         try
                         {
-
                             //frage ob server da ist
-                            // Connect to Remote EndPoint 
+                            // Connect to Remote EndPoint
                             _parent._workSocket.Connect(remoteEP);
 
                             _parent.SetState(_parent._readState);
+
                             //_parent._workSocket = new TcpClient(_parent._config.ipClient, _parent._config.portClient);
                             //private NetworkStream stream;
                             //stream = client.GetStream();
@@ -58,19 +52,17 @@ namespace testing
                         }
                         catch (Exception ex)
                         {
-
                             _parent.SetState(_parent._initState);
+
                             //MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                         }
-                        break;
 
+                        break;
 
                     case ConnectionKind.Server:
                         try
                         {
                             //aktuell nicht benutzt
-
-
                             _parent.SetState(_parent._readState);
                         }
                         catch (TimeoutException e)

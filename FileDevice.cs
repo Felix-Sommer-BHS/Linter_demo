@@ -1,21 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Input;
-using System.Xml;
 
-
-
-namespace testing
+namespace Testing
 {
-
-    class FileDevice : IDevice
+    internal class FileDevice : IDevice
     {
         private readonly Thread _mainThread;
         private bool _threadWork;
@@ -30,8 +20,8 @@ namespace testing
             _config = config;
             _mainThread = new Thread(new ThreadStart(this.DoWork));
             _mainThread.Priority = ThreadPriority.Lowest;
-            _temppath = _config.tempPathFileTransfer;
-            _temp = _config.tempFileTransfer;
+            _temppath = _config.TempPathFileTransfer;
+            _temp = _config.TempFileTransfer;
         }
 
         public event EventHandler<string> ProcessCompleted;
@@ -43,12 +33,10 @@ namespace testing
 
             //jdkef
             MoveToTemp,
+
             ReadFile,
             Delete,
         }
-
-
-
 
         public void Init()
         {
@@ -75,11 +63,10 @@ namespace testing
             }
         }
 
-
         public void FileTransfer(State state)
         {
-            string filepath = _config.pathFileTransfer;
-            int waitingTime = Convert.ToInt32(_config.waitingTimeFileTransfer);
+            string filepath = _config.PathFileTransfer;
+            int waitingTime = Convert.ToInt32(_config.WaitingTimeFileTransfer);
             string tempNew;
 
             switch (state)
@@ -101,6 +88,7 @@ namespace testing
 
                         break;
                     }
+
                 case State.ExistTemp:
 
                     if (Directory.Exists(_temp))
@@ -111,6 +99,7 @@ namespace testing
                             Console.WriteLine("Vorher schon datei in Temp Verzeichnis");
                             File.Delete(_temppath);
                         }
+
                         this._state = State.MoveToTemp;
                         break;
                     }
@@ -167,15 +156,13 @@ namespace testing
                         this._state = State.DetectFile;
                         ProcessCompleted(this, _dataWpa);
                     }
+
                     break;
+
                 default:
                     this._state = State.DetectFile;
                     break;
-
             }
-
         }
-
-
     }
 }
