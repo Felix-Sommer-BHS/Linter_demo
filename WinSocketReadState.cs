@@ -1,17 +1,23 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Net.Sockets;
 using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
 
-namespace Testing
+namespace testing
 {
-    internal partial class WinSocketDevice
+    partial class WinSocketDevice
     {
-        private class WinSocketReadState : IWinSocketState
+        class WinSocketReadState : IWinSocketState
         {
             protected WinSocketDevice _parent;
 
-            internal WinSocketReadState(WinSocketDevice parent)
+            internal WinSocketReadState(WinSocketDevice Parent)
             {
-                this._parent = parent;
+                this._parent = Parent;
             }
 
             public void Action()
@@ -27,25 +33,31 @@ namespace Testing
 
                     bytesRec = _parent._workSocket.Receive(bytes);
 
-                    int posStart = SearchStartByte(bytes);
-                    int posEnd = SearchEndByte(bytes);
+                    int posStart = searchStartByte(bytes);
+                    int posEnd = searchEndByte(bytes);
 
                     data += Encoding.ASCII.GetString(bytes, posStart + 1, (posEnd - posStart + 1));
 
                     //MessageBox.Show(data);
+
                     _parent.ProcessCompleted(this, data);
                     _parent.SetState(_parent._readState);
+
                 }
                 catch (Exception e)
                 {
                     //MessageBox.Show("Read failed: " + e.ToString());
                     _parent.SetState(_parent._closeState);
                 }
-
                 //a
+
+
+
+
+
             }
 
-            private int SearchStartByte(byte[] byteRead)
+            private int searchStartByte(byte[] byteRead)
             {
                 byte chrSTX = 0x02;
                 int i = 0;
@@ -60,11 +72,11 @@ namespace Testing
                         i = i + 1;
                     }
                 }
-
                 return -1;
-            }
 
-            private int SearchEndByte(byte[] byteRead)
+
+            }
+            private int searchEndByte(byte[] byteRead)
             {
                 byte chrETX = 0x03;
                 int i = 0;
@@ -79,8 +91,9 @@ namespace Testing
                         i = i + 1;
                     }
                 }
-
                 return -1;
+
+
             }
 
             //private byte[] cutOutMsg(byte[] bOld, int indexStart, int indexEnd)
@@ -98,6 +111,7 @@ namespace Testing
 
             //    }
             //    return b1;
+
 
             //}
         }

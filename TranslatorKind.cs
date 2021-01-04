@@ -2,7 +2,13 @@
 //     Copyright (c) Sprocket Enterprises. All rights reserved.
 // </copyright>
 
-namespace Testing
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace testing
 {
     public enum TranslatorKind
     {

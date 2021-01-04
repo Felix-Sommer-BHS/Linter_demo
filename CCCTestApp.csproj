@@ -39,7 +39,7 @@
     <WarningLevel>4</WarningLevel>
     <RunCodeAnalysis>true</RunCodeAnalysis>
     <CodeAnalysisIgnoreGeneratedCode>true</CodeAnalysisIgnoreGeneratedCode>
-    <CodeAnalysisRuleSet>..\..\..\BHS-Corrugated\TesteWorklflow\LinterRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>LinterRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>

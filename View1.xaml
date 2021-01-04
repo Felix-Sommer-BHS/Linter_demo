@@ -5,7 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-
+         
     d:DesignWidth="1024" d:DesignHeight="728">
 
     <Grid x:Name="LayoutRoot" Background="White">
@@ -125,10 +125,15 @@
         <TextBlock Height="25" Margin="312,39,680.6,0" Text="If:" VerticalAlignment="Top" FontSize="18.667" />
         <TextBlock Height="25" Margin="499,39,493.6,0" Text="or:" VerticalAlignment="Top" FontSize="18.667" />
         <TextBlock Height="34" Margin="8,0,675.6,0" Text="Interface, Translation Information:" Foreground="Blue" VerticalAlignment="Top" FontSize="22" />
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="11" Margin="0,125,-0.4,0" VerticalAlignment="Top" Width="1018" Background="Black" />
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="11" Margin="0,125,-0.4,0" VerticalAlignment="Top" Width="1018" Background="Black"/>
         <TextBlock Height="25" Margin="461,503,501.6,0" Text="1- 6" VerticalAlignment="Top" FontSize="14" />
         <TextBlock Height="25" Margin="589,503,373.6,0" Text="7- 12" VerticalAlignment="Top" FontSize="14" />
         <TextBlock Height="25" Margin="731,503,231.6,0" Text="13- 18" VerticalAlignment="Top" FontSize="14" />
         <TextBlock Height="25" Margin="846,503,116.6,0" Text="19- 24" VerticalAlignment="Top" FontSize="14" />
+
+
+
+
     </Grid>
+
 </Window>

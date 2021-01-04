@@ -1,11 +1,17 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
 using System.Net.Sockets;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
 
-namespace Testing
+namespace testing
 {
-    internal partial class WinSocketDevice
+    partial class WinSocketDevice
     {
-        private class WinSocketCloseState : IWinSocketState
+        class WinSocketCloseState : IWinSocketState
         {
             private WinSocketDevice _parent;
 
@@ -16,12 +22,12 @@ namespace Testing
 
             public void Action()
             {
-                switch (_parent._config.ConnectionTyp)
+                switch (_parent._config.connectionTyp)
                 {
                     case ConnectionKind.Client:
                         try
                         {
-                            // Release the socket.
+                            // Release the socket.    
                             _parent._workSocket.Shutdown(SocketShutdown.Both);
                             _parent._workSocket.Close();
                             _parent.SetState(_parent._initState);
@@ -32,13 +38,12 @@ namespace Testing
                             _parent._workSocket.Close();
                             _parent.SetState(_parent._initState);
                         }
-
                         break;
 
                     case ConnectionKind.Server:
                         try
                         {
-                            // Release the socket.
+                            // Release the socket.    
                             _parent._workSocket.Shutdown(SocketShutdown.Both);
                             _parent._workSocket.Close();
                             _parent.SetState(_parent._initState);

@@ -1,22 +1,49 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Automation;
+using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Ink;
+using System.Windows.Input;
+using System.Windows.Markup;
+using System.Windows.Media;
+using System.Windows.Media.Animation;
+using System.Windows.Media.Effects;
+using System.Windows.Media.Imaging;
+using System.Windows.Media.Media3D;
+using System.Windows.Media.TextFormatting;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+using System.Windows.Shell;
 using System.Xml;
+using testing;
+using testMfile_move;
 
-namespace Testing
+namespace testing
 {
-    internal class Config
+    class Config
     {
         public DeviceKind TypeInterface;
-        public string PathFileTransfer;
-        public string TempPathFileTransfer;
-        public string WaitingTimeFileTransfer;
-        public string TempFileTransfer;
-        public TranslatorKind TypeTranslator;
-        public ConnectionKind ConnectionTyp;
-        public int PortServer;
-        public string IpServer;
-        public int PortClient;
-        public string IpClient;
+        public string pathFileTransfer;
+        public string tempPathFileTransfer;
+        public string waitingTimeFileTransfer;
+        public string tempFileTransfer;
+        public TranslatorKind typeTranslator;
+        public ConnectionKind connectionTyp;
+        public int portServer;
+        public string ipServer;
+        public int portClient;
+        public string ipClient;
+
 
         public void ReadConfig(string pathXml)
         {
@@ -27,73 +54,67 @@ namespace Testing
                 string typeInterface = doc.ChildNodes[0].ChildNodes[0].InnerText;
                 Enum.TryParse<DeviceKind>(typeInterface, out this.TypeInterface);
 
-                this.PathFileTransfer = doc.ChildNodes[0].ChildNodes[1].ChildNodes[0].InnerText;
-                this.TempPathFileTransfer = doc.ChildNodes[0].ChildNodes[1].ChildNodes[1].InnerText;
-                this.WaitingTimeFileTransfer = doc.ChildNodes[0].ChildNodes[1].ChildNodes[2].InnerText;
-                this.TempFileTransfer = doc.ChildNodes[0].ChildNodes[1].ChildNodes[3].InnerText;
+                this.pathFileTransfer = doc.ChildNodes[0].ChildNodes[1].ChildNodes[0].InnerText;
+                this.tempPathFileTransfer = doc.ChildNodes[0].ChildNodes[1].ChildNodes[1].InnerText;
+                this.waitingTimeFileTransfer = doc.ChildNodes[0].ChildNodes[1].ChildNodes[2].InnerText;
+                this.tempFileTransfer = doc.ChildNodes[0].ChildNodes[1].ChildNodes[3].InnerText;
 
                 string con = doc.ChildNodes[0].ChildNodes[2].ChildNodes[0].InnerText;
 
-                Enum.TryParse<ConnectionKind>(con, out this.ConnectionTyp);
-                this.PortServer = int.Parse(doc.ChildNodes[0].ChildNodes[2].ChildNodes[1].InnerText);
-                this.IpServer = doc.ChildNodes[0].ChildNodes[2].ChildNodes[2].InnerText;
-                this.PortClient = int.Parse(doc.ChildNodes[0].ChildNodes[2].ChildNodes[3].InnerText);
-                this.IpClient = doc.ChildNodes[0].ChildNodes[2].ChildNodes[4].InnerText;
+                Enum.TryParse<ConnectionKind>(con, out this.connectionTyp);
+                this.portServer = int.Parse(doc.ChildNodes[0].ChildNodes[2].ChildNodes[1].InnerText);
+                this.ipServer = doc.ChildNodes[0].ChildNodes[2].ChildNodes[2].InnerText;
+                this.portClient = int.Parse(doc.ChildNodes[0].ChildNodes[2].ChildNodes[3].InnerText);
+                this.ipClient = doc.ChildNodes[0].ChildNodes[2].ChildNodes[4].InnerText;
 
                 string typTrans = doc.ChildNodes[0].ChildNodes[3].InnerText;
-                Enum.TryParse<TranslatorKind>(typTrans, out this.TypeTranslator);
+                Enum.TryParse<TranslatorKind>(typTrans, out this.typeTranslator);
+
 
                 if (TypeInterface == DeviceKind.Invalid)
                 {
                     throw new Exception("Interface/Device typ does not exist");
                 }
 
-                if (PathFileTransfer == string.Empty)
+                if (pathFileTransfer == string.Empty)
                 {
                     throw new Exception("File path does not exist");
                 }
-
-                if (TempPathFileTransfer == string.Empty)
+                if (tempPathFileTransfer == string.Empty)
                 {
                     throw new Exception("Temp path does not exist");
                 }
-
-                if (WaitingTimeFileTransfer == string.Empty)
+                if (waitingTimeFileTransfer == string.Empty)
                 {
                     throw new Exception("Waiting time does not exist");
                 }
-
-                if (TempFileTransfer == string.Empty)
+                if (tempFileTransfer == string.Empty)
                 {
                     throw new Exception("temp Verzeichnis does not exist");
                 }
 
-                if (TypeTranslator == TranslatorKind.Invalid)
+                if (typeTranslator == TranslatorKind.Invalid)
                 {
                     throw new Exception("Translator typ does not exist");
                 }
 
-                if (ConnectionTyp == ConnectionKind.Invalid)
+                if (connectionTyp == ConnectionKind.Invalid)
                 {
                     throw new Exception("Connection(Server/Client) Kind does not exist");
                 }
-
-                if (PortServer == null)
+                if (portServer == null)
                 {
                     throw new Exception("port number for Server does not exist");
                 }
-
-                if (PortClient == null)
+                if (portClient == null)
                 {
                     throw new Exception("port number for client does not exist");
                 }
-
-                if (IpServer == string.Empty)
+                if (ipServer == string.Empty)
                 {
                     throw new Exception("IP for Server doe not exist");
                 }
-
-                if (IpClient == string.Empty)
+                if (ipClient == string.Empty)
                 {
                     throw new Exception("IP for Client does not exist");
                 }
