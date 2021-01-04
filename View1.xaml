@@ -1,0 +1,139 @@
+﻿<Window x:Class="testMfile_move.View1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+         
+    d:DesignWidth="1024" d:DesignHeight="728">
+
+    <Grid x:Name="LayoutRoot" Background="White">
+        <TextBlock Height="25" Margin="238,140,585.6,0" Text="{Binding Path=DataSetCounter, Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="4,140,875.6,0" Text="SetDataCounter" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="238,165,585.6,0" Text="{Binding Path=costumerID, Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="4,165,875.6,0" Text="costumerID" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="238,190,585.6,0" Text="{Binding Path=stackerNr, Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="4,190,875.6,0" Text="stackeNr" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="238,215,585.6,0" Text="{Binding Path=dataSetID, Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="4,215,875.6,0" Text="dataSetID" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="238,240,585.6,0" Text="{Binding Path=multiStacking, Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="4,240,875.6,0" Text="multiStacking" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="238,265,585.6,0" Text="{Binding Path=multiStackPartial, Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="4,265,875.6,0" Text="multiStackPartial" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="237,285,586.6,0" Text="{Binding Path=multiStackNrPartial, Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="4,290,875.6,0" Text="multiStackNrPartial" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="234,315,561.6,0" Text="{Binding Path=orderNumber, Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="4,315,875.6,0" Text="orderNumber" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="238,340,585.6,0" Text="{Binding Path=partNr, Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="4,340,875.6,0" Text="partNr" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="234,365,561.6,0" Text="{Binding Path=costumerName, Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="4,365,875.6,0" Text="costumerName" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="238,391,585.6,0" Text="{Binding Path=processingMachine, Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="4,391,846.6,0" Text="processingMachine" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="237,415,586.6,0" Text="{Binding Path=lengthIndPartStack, Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="4,415,841.6,0" Text="lengthIndPartStack" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="238,440,585.6,0" Text="{Binding Path=outWidthIndPartStack, Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="4,440,826.6,0" Text="outWidthIndPartStack" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="238,465,585.6,0" Text="{Binding Path=nrSheetsPartStack, Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="4,465,841.6,0" Text="nrSheetsPartStack" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="237,490,585.6,0" Text="{Binding overallNrStacks, Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="4,490,875.6,0" Text="overallNrStacks" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="237,515,586.6,0" Text="{Binding overallWidthStackPackage, Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="4,515,793.6,0" Text="overallWidthStackPackage" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="238,540,585.6,0" Text="{Binding overalllengthStackPackage, Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="4,540,784.6,0" Text="overalllengthStackPackage" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="237,565,586.6,0" Text="{Binding overallheightStackPackage, Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="4,565,793.6,0" Text="overallheightStackPackage" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="237,590,586.6,0" Text="{Binding nrStackswidthwise, Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="4,590,793.6,0" Text="nrStackswidthwise" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="237,615,586.6,0" Text="{Binding nrStackslengthwise, Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="4,615,793.6,0" Text="nrStackslengthwise" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="237,640,586.6,0" Text="{Binding nrStacksabove, Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="4,640,793.6,0" Text="nrStacksabove" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="237,663,586.6,0" Text="{Binding stackConfNominal, Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Margin="4,663,793.6,10.4" Text="stackConfNominal" FontSize="18.667" />
+
+        <TextBlock Height="25" Margin="729,145,94.6,0" Text="{Binding intermLayerForPackages, Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="469,145,328.6,0" Text="intermLayerForPackages" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="729,175,94.6,0" Text="{Binding lastStack, Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="469,175,328.6,0" Text="lastStack" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="729,200,94.6,0" Text="{Binding lastRunCostumer, Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="469,200,328.6,0" Text="lastRunCostumer" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="729,225,94.6,0" Text="{Binding dischargeDirection, Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="469,225,328.6,0" Text="dischargeDirection" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="729,250,94.6,0" Text="{Binding expNrStackPackPartialOrder, Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="469,250,294.6,0" Text="expNrStackPackPartialOrder" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Margin="729,280,94.6,393.4" Text="{Binding expNrStackPackOverallOrder, Mode=OneWay}" FontSize="18.667" />
+        <TextBlock Height="25" Margin="469,280,294.6,0" Text="expNrStackPackOverallOrder" VerticalAlignment="Top" FontSize="18.667" />
+
+        <TextBlock Height="25" Margin="723,305,6.6,0" Text="{Binding setupIdentification, Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="469,305,294.6,0" Text="setupIdentification" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="729,330,94.6,0" Text="{Binding nrOuts, Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="469,330,294.6,0" Text="nrOuts" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="729,354,94.6,0" Text="{Binding totalCutsActualOrder, Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="469,354,294.6,0" Text="totalCutsActualOrder" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="729,379,94.6,0" Text="{Binding lastStackModified, Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="469,379,294.6,0" Text="lastStackModified" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Margin="729,404,94.6,269.4" Text="{Binding widthStackGroup, Mode=OneWay}" FontSize="18.667" />
+        <TextBlock Height="25" Margin="469,404,294.6,0" Text="widthStackGroup" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="729,430,94.6,0" Text="{Binding nrOutsForStackGroup, Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="469,430,294.6,0" Text="nrOutsForStackGroup" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="729,454,94.6,0" Text="{Binding lastStackStore, Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="469,454,294.6,0" Text="lastStackStore" VerticalAlignment="Top" FontSize="18.667" />
+
+        <TextBlock Height="25" Margin="469,481,412.6,0" Text="scoringKnifePos:" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="475,526,442.6,0" Text="{Binding scoringKnifePos[0], Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="475,553,442.6,0" Text="{Binding scoringKnifePos[1], Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="475,581,442.6,0" Text="{Binding scoringKnifePos[2], Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="475,608,442.6,0" Text="{Binding scoringKnifePos[3], Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="475,637,442.6,0" Text="{Binding scoringKnifePos[4], Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="475,667,442.6,0" Text="{Binding scoringKnifePos[5], Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="594,526,323.6,0" Text="{Binding scoringKnifePos[6], Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="594,555,323.6,0" Text="{Binding scoringKnifePos[7], Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="594,580,323.6,0" Text="{Binding scoringKnifePos[8], Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="594,607,323.6,0" Text="{Binding scoringKnifePos[9], Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="594,639,323.6,0" Text="{Binding scoringKnifePos[10], Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="594,668,323.6,0" Text="{Binding scoringKnifePos[11], Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="731,525,186.6,0" Text="{Binding scoringKnifePos[12], Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="731,553,186.6,0" Text="{Binding scoringKnifePos[13], Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="731,579,186.6,0" Text="{Binding scoringKnifePos[14], Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="731,608,186.6,0" Text="{Binding scoringKnifePos[15], Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="731,638,186.6,0" Text="{Binding scoringKnifePos[16], Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="732,668,185.6,0" Text="{Binding scoringKnifePos[17], Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="868,525,49.6,0" Text="{Binding scoringKnifePos[18], Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="868,553,49.6,0" Text="{Binding scoringKnifePos[19], Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="866,581,51.6,0" Text="{Binding scoringKnifePos[20], Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="865,612,52.6,0" Text="{Binding scoringKnifePos[21], Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="866,639,51.6,0" Text="{Binding scoringKnifePos[22], Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="868,667,49.6,0" Text="{Binding scoringKnifePos[23], Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+
+        <TextBlock Height="25" Margin="421,69,446.6,0" Text="{Binding port, Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="368,66,592.6,0" Text="Port:" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="421,96,446.6,0" Text="{Binding ip, Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="368,96,592.6,0" Text="IP:" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="151,40,730.6,0" Text="{Binding deviceKind, Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="8,37,888.6,0" Text="DeviceKind:" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="151,68,713.6,0" Text="{Binding connectionTyp, Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="8,64,867.6,0" Text="Connection Typ:" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="151,100,728.6,0" Text="{Binding translatorTyp, Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="8,92,888.6,0" Text="TranslatorKind:" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="714,75,9.6,0" Text="{Binding filePath, Mode=OneWay}" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="638,75,301.6,0" Text="Filepath:" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="349,39,560.6,0" Text="WinSocket:" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="611,41,299.6,0" Text="File Transfer:" VerticalAlignment="Top" FontSize="18.667" RenderTransformOrigin="0.5,0.5" ></TextBlock>
+        <TextBlock Height="25" Margin="312,39,680.6,0" Text="If:" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="25" Margin="499,39,493.6,0" Text="or:" VerticalAlignment="Top" FontSize="18.667" />
+        <TextBlock Height="34" Margin="8,0,675.6,0" Text="Interface, Translation Information:" Foreground="Blue" VerticalAlignment="Top" FontSize="22" />
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="11" Margin="0,125,-0.4,0" VerticalAlignment="Top" Width="1018" Background="Black"/>
+        <TextBlock Height="25" Margin="461,503,501.6,0" Text="1- 6" VerticalAlignment="Top" FontSize="14" />
+        <TextBlock Height="25" Margin="589,503,373.6,0" Text="7- 12" VerticalAlignment="Top" FontSize="14" />
+        <TextBlock Height="25" Margin="731,503,231.6,0" Text="13- 18" VerticalAlignment="Top" FontSize="14" />
+        <TextBlock Height="25" Margin="846,503,116.6,0" Text="19- 24" VerticalAlignment="Top" FontSize="14" />
+
+
+
+
+    </Grid>
+
+</Window>

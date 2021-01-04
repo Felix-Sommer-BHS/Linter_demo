@@ -1,0 +1,17 @@
+<config>
+  <typInterface>WinSocket</typInterface>
+  <FileTransfer>
+    <filepath>U:\file_transer\test\hierrein\datenVonCCC.txt</filepath>
+    <tempfile>C:\Users\FSommer\AppData\Local\Temp\temporal.txt</tempfile>
+    <waitingtime>500</waitingtime>
+    <tempPath>C:\Users\FSommer\AppData\Local\Temp\</tempPath>
+  </FileTransfer>
+  <WinSocket>
+	<Server_Client>Server</Server_Client> 
+	<Port_Server>8080</Port_Server>
+	<IP_Server>127.0.0.1</IP_Server>
+	<Port_Client>8080</Port_Client>
+	<IP_Client>127.0.0.1</IP_Client>
+  </WinSocket>
+  <Translator>V_2_7</Translator>
+</config>
