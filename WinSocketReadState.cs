@@ -33,8 +33,8 @@ namespace testing
 
                     bytesRec = _parent._workSocket.Receive(bytes);
 
-                    int posStart = searchStartByte(bytes);
-                    int posEnd = searchEndByte(bytes);
+                    int posStart = SearchStartByte(bytes);
+                    int posEnd = SearchEndByte(bytes);
 
                     data += Encoding.ASCII.GetString(bytes, posStart + 1, (posEnd - posStart + 1));
 
@@ -57,7 +57,7 @@ namespace testing
 
             }
 
-            private int searchStartByte(byte[] byteRead)
+            private int SearchStartByte(byte[] byteRead)
             {
                 byte chrSTX = 0x02;
                 int i = 0;
@@ -76,7 +76,7 @@ namespace testing
 
 
             }
-            private int searchEndByte(byte[] byteRead)
+            private int SearchEndByte(byte[] byteRead)
             {
                 byte chrETX = 0x03;
                 int i = 0;

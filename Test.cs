@@ -55,7 +55,7 @@ namespace testing
                 FileDispatcher myDispatcher = new FileDispatcher(g);
 
                 myDispatcher.Init();
-                myDispatcher.DecodeCompleted += myAdapter.updateData;
+                myDispatcher.DecodeCompleted += myAdapter.UpdateData;
 
 
                 //Console.WriteLine("test start second threat");bbbbcacbc
