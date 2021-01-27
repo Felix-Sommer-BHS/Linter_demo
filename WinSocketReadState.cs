@@ -64,7 +64,12 @@ namespace Testing
                 return -1;
             }
 
-            private int SearchEndByte(byte[] byteRead)
+            /// <summary>
+            /// help method which finds end Byte
+            /// </summary>
+            /// <param name="byteRead"></param>
+            /// <returns></returns>
+            private int SearchEndByte( byte []byteRead )
             {
                 byte chrETX = 0x03;
                 int i = 0;
