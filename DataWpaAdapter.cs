@@ -237,7 +237,7 @@ namespace Testing
         }
 
         //#region INotifyPropertyChanged
-        protected void OnPropertyChanged([CallerMemberName] String info = null)
+        protected void OnPropertyChanged([CallerMemberName] string info = null)
         {
             if (PropertyChanged != null)
             {

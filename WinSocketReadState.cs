@@ -69,7 +69,7 @@ namespace Testing
           /// </summary>
           /// <param name="byteRead"></param>
           /// <returns></returns>
-            private int SearchEndByte( byte []byteRead )
+            private int SearchEndByte(byte[] byteRead)
             {
                 byte chrETX = 0x03;
                 int i = 0;

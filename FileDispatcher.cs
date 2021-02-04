@@ -16,13 +16,13 @@ namespace Testing
         /// <summary>
         /// initializes the type of protocoll decoding
         /// </summary>
-        public void Init(   )
+        public void Init()
         {
-            switch( _config.TypeTranslator )
+            switch (_config.TypeTranslator)
             {
                 case TranslatorKind.V_2_7:
                     {
-                        _translator= new Translatorv2_7();
+                        _translator = new Translatorv2_7();
                         break;
                     }
 
@@ -31,17 +31,15 @@ namespace Testing
                     break;
             }
 
-            if (true){_i=0; }
-
-            int SearchEndByte(byte[] byteRead,int j)
+            int SearchEndByte(byte[] byteRead, int j)
             {
                 byte chrETX = 0x03;
                 int i = 0;
                 while (i < byteRead.Length)
                 {
-                    if (byteRead[ i ] == chrETX)
+                    if (byteRead[i] == chrETX)
                     {
-                        return i ;         
+                        return i;
                     }
                 }
 
@@ -53,7 +51,7 @@ namespace Testing
         /// test generic
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        public class GenericClass< T >
+        public class GenericClass<T>
         {
             private int _i = 1;
         }
