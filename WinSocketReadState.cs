@@ -64,11 +64,11 @@ namespace Testing
                 return -1;
             }
 
-            /// <summary>
-            /// help method which finds end Byte
-            /// </summary>
-            /// <param name="byteRead"></param>
-            /// <returns></returns>
+          /// <summary>
+          /// describtion
+          /// </summary>
+          /// <param name="byteRead"></param>
+          /// <returns></returns>
             private int SearchEndByte( byte []byteRead )
             {
                 byte chrETX = 0x03;
