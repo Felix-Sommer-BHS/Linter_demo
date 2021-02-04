@@ -3,6 +3,13 @@ using System.Windows;
 
 namespace Testing
 {
+    public enum test
+    {
+        ABC, DEF,
+    }
+
+    ValueTuple<int, int> x;
+
     /// <summary>
     /// here we do.
     /// </summary>
@@ -10,18 +17,30 @@ namespace Testing
     {
         private Config _config;
         private IDevice _device;
+        //
+        private String _leftButtonLocalizableText = "";
+
+        private int
+                _i,
+            _j;
+
         private ITranslator _translator;
+
 
         public FileDispatcher(Config config)
         {
-            _config = config;
+            _config = config; ;
         }
 
         public event EventHandler<ConveyData> DecodeCompleted;
 
-        public void Init()
+        public void Init(
+            )
         {
-            switch (_config.TypeTranslator)
+            _translator.TranslateInformation(object a,
+                "  ");
+
+            switch (_config.TypeTranslator) //comment
             {
                 case TranslatorKind.V_2_7:
                     {
@@ -55,9 +74,17 @@ namespace Testing
             }
         }
 
-        public void StartTranslator(object sender, string dataWpa)
+        public void StartTranslator
+
+
+            (
+
+            object sender
+
+            , string dataWpa
+            )
         {
-            if (DecodeCompleted != null)
+            if (null != DecodeCompleted)
             {
                 // File Transfer daten fehlen noch!!!!!!!!
                 ConveyData c1 = _translator.TranslateInformation(dataWpa);
