@@ -18,6 +18,10 @@ namespace Testing
         public int PortClient;
         public string IpClient;
 
+        /// <summary>
+        /// documentation
+        /// </summary>
+        /// <param name="pathXml">is important for ...</param>
         public void ReadConfig(string pathXml)
         {
             if (File.Exists(pathXml))

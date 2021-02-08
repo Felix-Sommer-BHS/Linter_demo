@@ -4,10 +4,8 @@ using System.Windows;
 
 namespace Testing
 {
-    /// <summary>
-    /// here we do.
-    /// </summary>
-    internal class FileDispatcher
+
+    internal class FileDispatcher()
     {
         private int _i = 0;
         private Config _config;
@@ -22,9 +20,8 @@ namespace Testing
         public int DataSetCounter2 { get { return 1; } }
 
         /// <summary>
-        /// initializes the type of protocoll decoding
+        /// Documentation about...
         /// </summary>
-
         public void Init()
         {
             //variable i
@@ -53,7 +50,7 @@ namespace Testing
                         break;
                     }
             }
-
+            
             int SearchEndByte(byte[] byteRead, int j)
 
             {
