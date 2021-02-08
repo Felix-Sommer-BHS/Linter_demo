@@ -1,6 +1,6 @@
 ﻿namespace Testing
 {
-    internal interface ITranslator
+    internal interface Translator
     {
         ConveyData TranslateInformation(string dat_wpa);
 
