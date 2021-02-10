@@ -14,10 +14,7 @@ namespace Testing
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public int DataSetCounter
-        {
-            get { return (_source != null) ? _source.DataSetCounter : 0; }
-        }
+        public int DataSetCounter => (_source != null) ? _source.DataSetCounter : 0;
 
         public string CostumerID
         {

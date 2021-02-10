@@ -25,23 +25,23 @@ namespace Testing
                 XmlDocument doc = new XmlDocument();
                 doc.Load(pathXml);
                 string typeInterface = doc.ChildNodes[0].ChildNodes[0].InnerText;
-                Enum.TryParse<DeviceKind>(typeInterface, out this.TypeInterface);
+                Enum.TryParse<DeviceKind>(typeInterface, out TypeInterface);
 
-                this.PathFileTransfer = doc.ChildNodes[0].ChildNodes[1].ChildNodes[0].InnerText;
-                this.TempPathFileTransfer = doc.ChildNodes[0].ChildNodes[1].ChildNodes[1].InnerText;
-                this.WaitingTimeFileTransfer = doc.ChildNodes[0].ChildNodes[1].ChildNodes[2].InnerText;
-                this.TempFileTransfer = doc.ChildNodes[0].ChildNodes[1].ChildNodes[3].InnerText;
+                PathFileTransfer = doc.ChildNodes[0].ChildNodes[1].ChildNodes[0].InnerText;
+                TempPathFileTransfer = doc.ChildNodes[0].ChildNodes[1].ChildNodes[1].InnerText;
+                WaitingTimeFileTransfer = doc.ChildNodes[0].ChildNodes[1].ChildNodes[2].InnerText;
+                TempFileTransfer = doc.ChildNodes[0].ChildNodes[1].ChildNodes[3].InnerText;
 
                 string con = doc.ChildNodes[0].ChildNodes[2].ChildNodes[0].InnerText;
 
-                Enum.TryParse<ConnectionKind>(con, out this.ConnectionTyp);
-                this.PortServer = int.Parse(doc.ChildNodes[0].ChildNodes[2].ChildNodes[1].InnerText);
-                this.IpServer = doc.ChildNodes[0].ChildNodes[2].ChildNodes[2].InnerText;
-                this.PortClient = int.Parse(doc.ChildNodes[0].ChildNodes[2].ChildNodes[3].InnerText);
-                this.IpClient = doc.ChildNodes[0].ChildNodes[2].ChildNodes[4].InnerText;
+                Enum.TryParse<ConnectionKind>(con, out ConnectionTyp);
+                PortServer = int.Parse(doc.ChildNodes[0].ChildNodes[2].ChildNodes[1].InnerText);
+                IpServer = doc.ChildNodes[0].ChildNodes[2].ChildNodes[2].InnerText;
+                PortClient = int.Parse(doc.ChildNodes[0].ChildNodes[2].ChildNodes[3].InnerText);
+                IpClient = doc.ChildNodes[0].ChildNodes[2].ChildNodes[4].InnerText;
 
                 string typTrans = doc.ChildNodes[0].ChildNodes[3].InnerText;
-                Enum.TryParse<TranslatorKind>(typTrans, out this.TypeTranslator);
+                Enum.TryParse<TranslatorKind>(typTrans, out TypeTranslator);
 
                 if (TypeInterface == DeviceKind.Invalid)
                 {

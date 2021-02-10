@@ -10,7 +10,7 @@ namespace testMfile_move
     {
         public View1()
         {
-            this.InitializeComponent();
+            InitializeComponent();
         }
     }
 }

@@ -39,7 +39,7 @@
     <WarningLevel>4</WarningLevel>
     <RunCodeAnalysis>true</RunCodeAnalysis>
     <CodeAnalysisIgnoreGeneratedCode>true</CodeAnalysisIgnoreGeneratedCode>
-    <CodeAnalysisRuleSet>..\..\..\..\..\BHS Corrugated Maschinen- und Anlagenbau GmbH\P_BHS_DE_DigitalEngineering - General\Styleguide\StyleCopRules_BHS.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>CCCTestApp.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -49,17 +49,18 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>
-    </CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>CCCTestApp1.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <None Include=".editorconfig" />
+    <AdditionalFiles Include=".editorconfig" />
     <None Include="App.config" />
-    <None Include="LinterRules.ruleset" />
+    <None Include="CCCTestApp.ruleset" />
+    <None Include="CCCTestApp1.ruleset" />
     <None Include="packages.config" />
+    <AdditionalFiles Include="stylecop.json" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IWinSocketState.cs" />

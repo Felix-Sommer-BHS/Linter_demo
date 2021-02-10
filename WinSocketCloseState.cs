@@ -11,7 +11,7 @@ namespace Testing
 
             internal WinSocketCloseState(WinSocketDevice parent)
             {
-                this._parent = parent;
+                _parent = parent;
             }
 
             public void Action()

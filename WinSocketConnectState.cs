@@ -12,7 +12,7 @@ namespace Testing
 
             internal WinSocketConnectState(WinSocketDevice parent)
             {
-                this._parent = parent;
+                _parent = parent;
             }
 
             public void Action()

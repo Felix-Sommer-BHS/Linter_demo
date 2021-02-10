@@ -54,13 +54,13 @@ namespace Testing
                             IPAddress address = IPAddress.Parse(ipAddress);
                             IPEndPoint myEP = new IPEndPoint(address, _parent._config.PortServer);
 
-                            this._parent._workSocket.Bind(myEP);
+                            _parent._workSocket.Bind(myEP);
 
                             // We will listen 1 requests at a time
                             //geht iwie immer durch!!!!!!!!!!!
-                            this._parent._workSocket.Listen(1);
+                            _parent._workSocket.Listen(1);
 
-                            this._parent._workSocket = this._parent._workSocket.Accept();
+                            _parent._workSocket = _parent._workSocket.Accept();
 
                             //MessageBox.Show("Connection accepted");
                             _parent.SetState(_parent._readState);

@@ -1,6 +1,6 @@
 ﻿namespace Testing
 {
-    internal interface IWinSocketState
+    internal interface WinSocketState
     {
         void Action();
     }

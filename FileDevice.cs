@@ -5,20 +5,23 @@ using System.Windows;
 
 namespace Testing
 {
+    /// <summary>
+    /// hallo
+    /// </summary>
     internal class FileDevice : IDevice
     {
         private readonly Thread _mainThread;
         private bool _threadWork;
         private Config _config;
         private State _state = new State();
-        private string _dataWpa = string.Empty;
+        private string _dat_aWpa = string.Empty;
         private string _temppath; // = _config.tempPathFileTransfer;
         private string _temp;
 
         public FileDevice(Config config)
         {
             _config = config;
-            _mainThread = new Thread(new ThreadStart(this.DoWork));
+            _mainThread = new Thread(new ThreadStart(DoWork));
             _mainThread.Priority = ThreadPriority.Lowest;
             _temppath = _config.TempPathFileTransfer;
             _temp = _config.TempFileTransfer;
@@ -59,7 +62,7 @@ namespace Testing
                 {
                     FileTransfer(_state);
                 }
-                while (this._threadWork);
+                while (_threadWork);
             }
         }
 
@@ -75,14 +78,14 @@ namespace Testing
 
                     if (File.Exists(filepath))
                     {
-                        this._state = State.ExistTemp;
+                        _state = State.ExistTemp;
                         Console.WriteLine("File existiert in :" + filepath);
 
                         break;
                     }
                     else
                     {
-                        this._state = State.DetectFile;
+                        _state = State.DetectFile;
                         Console.WriteLine("File existiert nicht");
                         Thread.Sleep(waitingTime);
 
@@ -100,7 +103,7 @@ namespace Testing
                             File.Delete(_temppath);
                         }
 
-                        this._state = State.MoveToTemp;
+                        _state = State.MoveToTemp;
                         break;
                     }
                     else
@@ -113,7 +116,7 @@ namespace Testing
                         _temp = tempNew;
                         Console.WriteLine("Neues TempVerzeichnis: " + _temppath);
                         MessageBox.Show(_temppath);
-                        this._state = State.DetectFile;
+                        _state = State.DetectFile;
                         Thread.Sleep(waitingTime);
                         break;
                     }
@@ -124,13 +127,13 @@ namespace Testing
                     if (File.Exists(filepath))
                     {
                         Console.WriteLine("The original file still exists in filepath, which is unexpected");
-                        this._state = State.DetectFile;
+                        _state = State.DetectFile;
                         Thread.Sleep(10);
                     }
                     else
                     {
                         Console.WriteLine("{0} was moved to {1}.", filepath, _temppath);
-                        this._state = State.ReadFile;
+                        _state = State.ReadFile;
                     }
 
                     break;
@@ -139,7 +142,7 @@ namespace Testing
                     _dataWpa = File.ReadAllText(_temppath);
                     Console.WriteLine("file eingelesen");
 
-                    this._state = State.Delete;
+                    _state = State.Delete;
                     break;
 
                 case State.Delete:
@@ -147,20 +150,20 @@ namespace Testing
                     if (File.Exists(_temppath))
                     {
                         Console.WriteLine("löschen im temp-verzeichnis hat nicht funktioniert");
-                        this._state = State.DetectFile;
+                        _state = State.DetectFile;
                         Thread.Sleep(waitingTime);
                     }
                     else
                     {
                         Console.WriteLine("löschen im temop hat funktioniert");
-                        this._state = State.DetectFile;
+                        _state = State.DetectFile;
                         ProcessCompleted(this, _dataWpa);
                     }
 
                     break;
 
                 default:
-                    this._state = State.DetectFile;
+                    _state = State.DetectFile;
                     break;
             }
         }

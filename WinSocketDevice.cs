@@ -22,9 +22,9 @@ namespace Testing
 
         public WinSocketDevice(Config config)
         {
-            this._config = config;
-            this._thread = new Thread(new ThreadStart(this.DoWork));
-            this._thread.Priority = ThreadPriority.Lowest;
+            _config = config;
+            _thread = new Thread(new ThreadStart(DoWork));
+            _thread.Priority = ThreadPriority.Lowest;
         }
 
         public event EventHandler<string> ProcessCompleted;
@@ -33,17 +33,17 @@ namespace Testing
         {
             do
             {
-                this._currentState.Action();
+                _currentState.Action();
             }
-            while (this._threadWork);
+            while (_threadWork);
         }
 
         public void Init()
         {
-            this._initState = new WinSocketInitState(this);
-            this._connectState = new WinSocketConnectState(this);
-            this._readState = new WinSocketReadState(this);
-            this._closeState = new WinSocketCloseState(this);
+            _initState = new WinSocketInitState(this);
+            _connectState = new WinSocketConnectState(this);
+            _readState = new WinSocketReadState(this);
+            _closeState = new WinSocketCloseState(this);
 
             SetState(_initState);
             Start();
@@ -51,18 +51,18 @@ namespace Testing
 
         public void Stop()
         {
-            this._threadWork = false;
+            _threadWork = false;
         }
 
         internal void SetState(IWinSocketState state)
         {
-            this._currentState = state;
+            _currentState = state;
         }
 
         private void Start()
         {
-            this._threadWork = true;
-            this._thread.Start();
+            _threadWork = true;
+            _thread.Start();
         }
     }
 }
