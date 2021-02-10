@@ -56,7 +56,6 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <None Include=".editorconfig" />
     <None Include="App.config" />
     <None Include="LinterRules.ruleset" />
     <None Include="packages.config" />
