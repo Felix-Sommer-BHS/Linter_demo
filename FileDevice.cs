@@ -82,6 +82,8 @@ namespace testing
             int waitingTime = Convert.ToInt32(_config.waitingTimeFileTransfer);
             string tempNew;
 
+            if (true) filepath = "ksjenf";
+
             switch (state)
             {
                 case State.DetectFile:
@@ -167,6 +169,7 @@ namespace testing
                         this._state = State.DetectFile;
                         ProcessCompleted(this, _dataWpa);
                     }
+
                     break;
                 default:
                     this._state = State.DetectFile;
