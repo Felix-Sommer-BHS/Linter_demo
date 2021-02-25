@@ -37,10 +37,10 @@ jobs:
      #   run: dotnet tool install rookxx.stylecopanalyzers-cli --global
         
       - name: Restore Nuget packages
-        run: nuget restore Test_app.sln
+        run: nuget restore CCCTestApp.csproj
         
       - name: Build solution
-        run: msbuild Test_app.sln
+        run: msbuild CCCTestApp.csproj
       #- name: run Linter
       #   run: style check -r StyleCopRules_BHS.ruleset Test_app.sln 
     
