@@ -1,29 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Sockets;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
-namespace testing
+namespace Testing
 {
     //a
     //b
-    partial class WinSocketDevice
+    internal partial class WinSocketDevice
     {
-        class WinSocketInitState : IWinSocketState
+        private class WinSocketInitState : IWinSocketState
         {
             protected WinSocketDevice _parent;
-            internal WinSocketInitState(WinSocketDevice Parent)
+
+            internal WinSocketInitState(WinSocketDevice parent)
             {
-                _parent = Parent;
+                _parent = parent;
             }
 
             public void Action()
             {
-                switch (_parent._config.connectionTyp)
+                switch (_parent._config.ConnectionTyp)
                 {
                     case ConnectionKind.Client:
                         try
@@ -40,6 +37,7 @@ namespace testing
                             MessageBox.Show("Init Client schlägt fehl" + e.Message);
                             _parent.SetState(_parent._initState);
                         }
+
                         break;
 
                     case ConnectionKind.Server:
@@ -48,22 +46,23 @@ namespace testing
                             _parent._workSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP)
                             {
                                 SendTimeout = 1000,
-                                ReceiveTimeout = 1000
+                                ReceiveTimeout = 1000,
                             };
-                            //Socket konfigurieren
 
-                            string ipAddress = _parent._config.ipServer;
+                            //Socket konfigurieren
+                            string ipAddress = _parent._config.IpServer;
                             IPAddress address = IPAddress.Parse(ipAddress);
-                            IPEndPoint myEP = new IPEndPoint(address, _parent._config.portServer);
+                            IPEndPoint myEP = new IPEndPoint(address, _parent._config.PortServer);
 
                             this._parent._workSocket.Bind(myEP);
-                            // We will listen 1 requests at a time  
+
+                            // We will listen 1 requests at a time
                             //geht iwie immer durch!!!!!!!!!!!
                             this._parent._workSocket.Listen(1);
 
                             this._parent._workSocket = this._parent._workSocket.Accept();
-                            //MessageBox.Show("Connection accepted");
 
+                            //MessageBox.Show("Connection accepted");
                             _parent.SetState(_parent._readState);
                         }
                         catch (TimeoutException e)
@@ -74,10 +73,11 @@ namespace testing
                         catch (Exception ex)
                         {
                             _parent.SetState(_parent._closeState);
-                            //MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                        }
-                        break;
 
+                            MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
+
+                        break;
                 }
             }
         }

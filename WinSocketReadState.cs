@@ -1,23 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Sockets;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
-namespace testing
+namespace Testing
 {
-    partial class WinSocketDevice
+    internal partial class WinSocketDevice
     {
-        class WinSocketReadState : IWinSocketState
+        private class WinSocketReadState : IWinSocketState
         {
             protected WinSocketDevice _parent;
 
-            internal WinSocketReadState(WinSocketDevice Parent)
+            internal WinSocketReadState(WinSocketDevice parent)
             {
-                this._parent = Parent;
+                this._parent = parent;
             }
 
             public void Action()
@@ -33,50 +28,26 @@ namespace testing
 
                     bytesRec = _parent._workSocket.Receive(bytes);
 
-                    int posStart = searchStartByte(bytes);
-                    int posEnd = searchEndByte(bytes);
+                    int posStart = SearchStartByte(bytes);
+                    int posEnd = SearchEndByte(bytes);
 
                     data += Encoding.ASCII.GetString(bytes, posStart + 1, (posEnd - posStart + 1));
 
-                    //MessageBox.Show(data);
+                    MessageBox.Show(data);
 
                     _parent.ProcessCompleted(this, data);
                     _parent.SetState(_parent._readState);
-
                 }
                 catch (Exception e)
                 {
-                    //MessageBox.Show("Read failed: " + e.ToString());
+                    MessageBox.Show("Read failed: " + e.ToString());
                     _parent.SetState(_parent._closeState);
                 }
+
                 //a
-
-
-
-
-
             }
 
-            private int searchStartByte(byte[] byteRead)
-            {
-                byte chrSTX = 0x02;
-                int i = 0;
-                while (i < byteRead.Length)
-                {
-                    if (byteRead[i] == chrSTX)
-                    {
-                        return i;
-                    }
-                    else
-                    {
-                        i = i + 1;
-                    }
-                }
-                return -1;
-
-
-            }
-            private int searchEndByte(byte[] byteRead)
+            private int SearchEndByte(byte[] byteRead)
             {
                 byte chrETX = 0x03;
                 int i = 0;
@@ -91,9 +62,27 @@ namespace testing
                         i = i + 1;
                     }
                 }
+
                 return -1;
+            }
 
+            private int SearchStartByte(byte[] byteRead)
+            {
+                byte chrSTX = 0x02;
+                int i = 0;
+                while (i < byteRead.Length)
+                {
+                    if (byteRead[i] == chrSTX)
+                    {
+                        return i;
+                    }
+                    else
+                    {
+                        i = i + 1;
+                    }
+                }
 
+                return -1;
             }
 
             //private byte[] cutOutMsg(byte[] bOld, int indexStart, int indexEnd)
@@ -111,7 +100,6 @@ namespace testing
 
             //    }
             //    return b1;
-
 
             //}
         }
