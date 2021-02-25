@@ -33,14 +33,14 @@ jobs:
   # uses: NuGet/setup-nuget@04b0c2b8d1b97922f67eca497d7cf0bf17b8ffe1
         uses: NuGet/setup-nuget@v1.0.5
         
-     # - name: install stylecopCLI
-     #   run: dotnet tool install rookxx.stylecopanalyzers-cli --global
+      - name: install stylecopCLI
+        run: dotnet tool install rookxx.stylecopanalyzers-cli --global
         
       - name: Restore Nuget packages
         run: nuget restore Test_app.sln
         
       - name: Build solution
-        run: msbuild -t:restore CCCTestApp.csproj
-      #- name: run Linter
-      #   run: style check -r StyleCopRules_BHS.ruleset Test_app.sln 
+        run: msbuild Test_app.sln
+      - name: run Linter
+        run: style check -r StyleCopRules_BHS.ruleset Test_app.sln 
     
