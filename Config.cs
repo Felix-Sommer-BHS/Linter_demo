@@ -28,12 +28,12 @@ using System.Xml;
 using testing;
 using testMfile_move;
 
-namespace Testing
+namespace testing
 {
     class Config
     {
         public DeviceKind TypeInterface;
-        public string PathFileTransfer;
+        public string pathFileTransfer;
         public string tempPathFileTransfer;
         public string waitingTimeFileTransfer;
         public string tempFileTransfer;
@@ -54,7 +54,7 @@ namespace Testing
                 string typeInterface = doc.ChildNodes[0].ChildNodes[0].InnerText;
                 Enum.TryParse<DeviceKind>(typeInterface, out this.TypeInterface);
 
-                this.PathFileTransfer = doc.ChildNodes[0].ChildNodes[1].ChildNodes[0].InnerText;
+                this.pathFileTransfer = doc.ChildNodes[0].ChildNodes[1].ChildNodes[0].InnerText;
                 this.tempPathFileTransfer = doc.ChildNodes[0].ChildNodes[1].ChildNodes[1].InnerText;
                 this.waitingTimeFileTransfer = doc.ChildNodes[0].ChildNodes[1].ChildNodes[2].InnerText;
                 this.tempFileTransfer = doc.ChildNodes[0].ChildNodes[1].ChildNodes[3].InnerText;
@@ -76,7 +76,7 @@ namespace Testing
                     throw new Exception("Interface/Device typ does not exist");
                 }
 
-                if (PathFileTransfer == string.Empty)
+                if (pathFileTransfer == string.Empty)
                 {
                     throw new Exception("File path does not exist");
                 }

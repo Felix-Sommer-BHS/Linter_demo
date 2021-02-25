@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Testing
+namespace testing
 {
     partial class WinSocketDevice
     {

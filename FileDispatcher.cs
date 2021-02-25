@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 
 
-namespace Testing
+namespace testing
 {
     /// <summary>
     /// here we do.
@@ -26,7 +26,7 @@ namespace Testing
 
         public void Init()
         {
-            switch (_config.TypeTranslator)
+            switch (_config.typeTranslator)
             {
                 case TranslatorKind.V_2_7:
                     {
@@ -68,46 +68,46 @@ namespace Testing
             {
                 // File Transfer daten fehlen noch!!!!!!!!
                 ConveyData c1 = _translator.TranslateInformation(dataWpa);
-                c1.DeviceKind = _config.TypeInterface;
-                c1.TranslatorTyp = _config.TypeTranslator;
-                c1.ConnectionTyp = _config.ConnectionTyp;
+                c1.deviceKind = _config.TypeInterface;
+                c1.translatorTyp = _config.typeTranslator;
+                c1.connectionTyp = _config.connectionTyp;
                 switch (_config.TypeInterface)
                 {
                     case DeviceKind.FileTransfer:
-                        c1.FilePath = _config.PathFileTransfer;
-                        c1.Port = 0;
-                        c1.Ip = "nur für WinSocket";
+                        c1.filePath = _config.pathFileTransfer;
+                        c1.port = 0;
+                        c1.ip = "nur für WinSocket";
 
                         break;
 
                     case DeviceKind.WinSocket:
-                        c1.FilePath = "Nur für FileTransfer";
-                        switch (_config.ConnectionTyp)
+                        c1.filePath = "Nur für FileTransfer";
+                        switch (_config.connectionTyp)
                         {
                             case ConnectionKind.Server:
-                                c1.Port = _config.PortServer;
-                                c1.Ip = _config.IpServer;
+                                c1.port = _config.portServer;
+                                c1.ip = _config.ipServer;
                                 break;
 
                             case ConnectionKind.Client:
-                                c1.Port = _config.PortClient;
-                                c1.Ip = _config.IpClient;
+                                c1.port = _config.portClient;
+                                c1.ip = _config.ipClient;
                                 break;
                         }
 
                         break;
                 }
 
-                switch (this._config.ConnectionTyp)
+                switch (this._config.connectionTyp)
                 {
                     case ConnectionKind.Server:
-                        c1.Port = _config.PortServer;
-                        c1.Ip = _config.IpServer;
+                        c1.port = _config.portServer;
+                        c1.ip = _config.ipServer;
                         break;
 
                     case ConnectionKind.Client:
-                        c1.Port = _config.PortClient;
-                        c1.Ip = _config.IpClient;
+                        c1.port = _config.portClient;
+                        c1.ip = _config.ipClient;
                         break;
                 }
 

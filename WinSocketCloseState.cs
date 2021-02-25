@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Testing
+namespace testing
 {
     partial class WinSocketDevice
     {
@@ -22,7 +22,7 @@ namespace Testing
 
             public void Action()
             {
-                switch (_parent._config.ConnectionTyp)
+                switch (_parent._config.connectionTyp)
                 {
                     case ConnectionKind.Client:
                         try

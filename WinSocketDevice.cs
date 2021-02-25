@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using testMfile_move;
 
-namespace Testing
+namespace testing
 {
     partial class WinSocketDevice : IDevice
     {
