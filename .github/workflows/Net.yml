@@ -40,7 +40,7 @@ jobs:
         run: nuget restore Test_app.sln
         
       - name: Build solution
-        run: msbuild CCCTestApp.csproj
+        run: msbuild -t:restore CCCTestApp.csproj
       #- name: run Linter
       #   run: style check -r StyleCopRules_BHS.ruleset Test_app.sln 
     
