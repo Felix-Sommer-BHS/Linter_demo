@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace TestMfile_move
+namespace testMfile_move
 {
     /// <summary>
     /// Interaction logic for View1.xaml.
