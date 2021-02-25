@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace testing
+namespace Testing
 {
     //a
     //b
@@ -23,7 +23,7 @@ namespace testing
 
             public void Action()
             {
-                switch (_parent._config.connectionTyp)
+                switch (_parent._config.ConnectionTyp)
                 {
                     case ConnectionKind.Client:
                         try
@@ -52,9 +52,9 @@ namespace testing
                             };
                             //Socket konfigurieren
 
-                            string ipAddress = _parent._config.ipServer;
+                            string ipAddress = _parent._config.IpServer;
                             IPAddress address = IPAddress.Parse(ipAddress);
-                            IPEndPoint myEP = new IPEndPoint(address, _parent._config.portServer);
+                            IPEndPoint myEP = new IPEndPoint(address, _parent._config.PortServer);
 
                             this._parent._workSocket.Bind(myEP);
                             // We will listen 1 requests at a time  

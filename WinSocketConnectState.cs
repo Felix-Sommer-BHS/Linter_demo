@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace testing
+namespace Testing
 {
     partial class WinSocketDevice
     {
@@ -23,13 +23,13 @@ namespace testing
 
             public void Action()
             {
-                switch (_parent._config.connectionTyp)
+                switch (_parent._config.ConnectionTyp)
                 {
                     case ConnectionKind.Client:
 
-                        string ipAddress = _parent._config.ipServer;
+                        string ipAddress = _parent._config.IpServer;
                         IPAddress address = IPAddress.Parse(ipAddress);
-                        IPEndPoint remoteEP = new IPEndPoint(address, _parent._config.portClient);
+                        IPEndPoint remoteEP = new IPEndPoint(address, _parent._config.PortClient);
                         try
                         {
 

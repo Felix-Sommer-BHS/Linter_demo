@@ -12,7 +12,7 @@ using System.Xml;
 
 
 
-namespace testing
+namespace Testing
 {
 
     class FileDevice : IDevice
@@ -30,8 +30,8 @@ namespace testing
             _config = config;
             _mainThread = new Thread(new ThreadStart(this.DoWork));
             _mainThread.Priority = ThreadPriority.Lowest;
-            _temppath = _config.tempPathFileTransfer;
-            _temp = _config.tempFileTransfer;
+            _temppath = _config.TempPathFileTransfer;
+            _temp = _config.TempFileTransfer;
         }
 
         public event EventHandler<string> ProcessCompleted;
@@ -78,8 +78,8 @@ namespace testing
 
         public void FileTransfer(State state)
         {
-            string filepath = _config.pathFileTransfer;
-            int waitingTime = Convert.ToInt32(_config.waitingTimeFileTransfer);
+            string filepath = _config.PathFileTransfer;
+            int waitingTime = Convert.ToInt32(_config.WaitingTimeFileTransfer);
             string tempNew;
 
             switch (state)

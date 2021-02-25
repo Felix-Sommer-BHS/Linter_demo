@@ -12,7 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace testMfile_move
+namespace TestMfile_move
 {
     /// <summary>
     /// Interaction logic for View1.xaml.

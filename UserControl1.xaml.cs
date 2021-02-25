@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace testMfile_move
+namespace TestMfile_move
 {
     /// <summary>
     /// Interaktionslogik für UserControl1.xaml.

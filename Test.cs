@@ -25,7 +25,7 @@ using System.Xml;
 using testing;
 using testMfile_move;
 
-namespace testing
+namespace Testing
 {
 
 
