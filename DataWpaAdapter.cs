@@ -12,6 +12,7 @@ namespace Testing
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        #region Properties
         public ConnectionKind ConnectionTyp
         {
             get { return (_source != null) ? _source.ConnectionTyp : ConnectionKind.Invalid; }
@@ -19,8 +20,11 @@ namespace Testing
 
         public string CostumerID
         {
+            #region dd
             get { return (_source != null) ? _source.CostumerID : string.Empty; }
+            #endregion
         }
+        #endregion
 
         public string CostumerName
         {

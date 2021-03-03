@@ -8,13 +8,17 @@ namespace Testing
     /// </summary>
     internal class FileDispatcher
     {
+        #region My class
         private Config _config;
         private IDevice _device;
         private ITranslator _translator;
+        #endregion
 
         public FileDispatcher(Config config)
         {
+            #region ddd
             _config = config;
+            #endregion
         }
 
         public event EventHandler<ConveyData> DecodeCompleted;
